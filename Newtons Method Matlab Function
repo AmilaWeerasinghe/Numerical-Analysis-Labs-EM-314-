@@ -1,0 +1,28 @@
+function[zeros,res,niter]=newtons(f,df,xo,tol,nmax)
+niter=0;
+x=xo-(f(xo)/df(xo));
+
+while abs(x-xo)>=tol && niter<=nmax
+    xo=x;
+    x=xo-f(xo)/df(xo);
+    niter=niter+1;
+    e(niter)=abs(x-xo);
+    fprintf('%d  | %d \t   %d  \t|\n',niter,x,e(niter));
+end
+if niter>nmax
+    fprintf('newtons method stopped without convergence');
+end
+%fprintf('%f',xo);
+zeros=x;
+res=x-xo;
+
+The Function should be input like this
+f.m
+function y=f(x)
+y=x^2+4*x-4;
+
+
+df.m
+
+function z= df(t)
+z=2*t+4;
