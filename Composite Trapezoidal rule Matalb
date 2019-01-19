@@ -1,0 +1,25 @@
+trape.m
+
+function y= trape(a,b,n,f)
+result=0;
+%f=inline(f);
+h=(b-a)/n; %space
+x=[a+h:h:b-h];
+%display(x);
+for i=1:n-1
+   result=result+fun(x(i));
+   
+end
+result=result*2;
+result=result+fun(a)+fun(b);
+result=result*(h/2);
+y=result;
+end
+
+Input function
+
+fun.m
+
+function y = fun (x)
+y=(1-x-(4*x^3)+(2*x^5));
+end
