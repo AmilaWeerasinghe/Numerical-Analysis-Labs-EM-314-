@@ -1,0 +1,35 @@
+LagrangeIntepolant.m
+
+function t = LagrangeInterpolant( X,Y)
+p=1;
+q=0;
+t=0;
+ 
+x=sym('x');
+ 
+for i=1 : length(X)
+    for j=1:length(X)
+        if j~=i
+            p=p*(x-X(j));
+        else
+        end
+        
+    end
+    for j=1:length(X)
+        if j~=i
+            p=p/(X(i)-X(j));
+        else
+        end
+    end
+    
+    p=p*Y(i);
+    q=p;
+    t=t+q;
+    p=1;
+    
+end
+disp(t);
+ezplot(t, [-4,4]);
+ 
+ 
+end
