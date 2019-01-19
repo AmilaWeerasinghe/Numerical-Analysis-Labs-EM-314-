@@ -1,0 +1,28 @@
+function y = Eulers(dff,a,b,h,dff1)
+ 
+z=0;
+for i=a+h:h:b
+    fprintf('x = %d ,',i);
+   
+    z=dff1+h*dff(a);
+    
+    fprintf('y = %d\n',z);
+    dff1=z;
+    a=i;
+    
+end
+y=z;
+end
+ 
+%comments
+%a = start value
+%b=end valu
+%h=step size
+%dff = the differentail equation
+%dff1= the initial value when y(a)
+
+
+ODE is given as dff.m
+function y = dff(x)
+y=-2*(x^3)+12*(x^2)-20*x+8.5;
+end
