@@ -1,0 +1,29 @@
+Matlab function RungeKutta.m
+function y = RungeKutta(dff2,a,b,h,dff1)
+z=dff1;
+k0=0;
+k1=0;
+k2=0;
+k3=0;
+p=0;
+for i=a:h:b
+fprintf('x = %d ',i);
+fprintf('y =%d ',z);
+k0=h*dff2(i,z);
+fprintf('k0 = %d',k0);
+k1=h*dff2((i+(h/2)),(z+(k0/2)));
+fprintf('k1 = %d',k1);
+k2=h*dff2((i+(h/2)),(z+(k1/2)));
+    fprintf('k2 = %d ',k2);
+    k3=h*dff2(i,(z+k2));
+    fprintf('k3 = %d',k3);
+ p=z+(k0+2*k1+2*k2+k3);
+ fprintf('y(n+1) = %d\n',p);
+end
+y=p;
+end
+
+The ODE  dff2.m
+function z = dff2(x,y)
+z=x+y;
+end
