@@ -1,0 +1,30 @@
+simps3.m
+function y = simps3(a,b,n,f)
+result =0;
+result1=0;
+result2=0;
+ 
+h=(b-a)/n; %space
+x=[a+h:h:b-h];
+ 
+for i=1:2:n-1
+   result1=result1+fun(x(i));
+end
+result1=result1*4;
+for i=2:2:n-2
+   result2=result2+fun(x(i));
+end
+result2=result2*2;
+result=result1+result2;
+result=result+fun(a)+fun(b);
+result=(result*h)/3;
+y=result;
+ 
+end
+  
+  
+Input function fun.m
+
+function y = fun (t)
+y=(1-t-(4*t^3)+(2*t^5));
+end
