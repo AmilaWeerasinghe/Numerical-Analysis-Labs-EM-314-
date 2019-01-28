@@ -27,3 +27,6 @@ The ODE  dff2.m
 function z = dff2(x,y)
 z=x+y;
 end
+
+
+//bug fixed runge kutta method it can be used to return two matrices of X and Y values
