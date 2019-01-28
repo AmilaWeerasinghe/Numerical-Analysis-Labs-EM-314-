@@ -41,3 +41,50 @@ The input ODE dff2.m
 function z = dff2(x,y)
 z=x+y;
 end
+
+
+//Output two matrices for X and Y values for each step
+
+
+function [X,Y]= ImprovedEulers(dff,a,b,h,dff1)
+z=0;
+k=0;
+z=dff1;
+l=0;
+m=0;
+n=0;
+o=0;
+p=0;
+q=0;
+ 
+j=1;
+for i=a:h:b
+   fprintf('x = %d\t,',i);
+   fprintf('h =%d,',z);
+   k=dff(i);
+   fprintf('dh = %d,',k);
+   l=h*k;
+   fprintf('h*dh =%d,',l);
+   m=z+l;
+   fprintf('h(n+1) = %d,',m);
+   n=dff(i);
+   fprintf('dh(n+1) = %d,',n);
+   o=(k+n)/2;
+   fprintf('dh(average) = %d,',o);
+   p=h*o;
+   fprintf('h*dh(average) = %d,',p);
+   q=z+p;
+   fprintf('h(n+1)improved = %d\n',q);
+    z=q;
+    X(1,j)=i;
+ 
+ Y(1,j)=q;
+   j=j+1; 
+end
+y=q;
+end
+%comments
+%a= start value
+%b=end value
+%h=step size
+%dff1= initial value
